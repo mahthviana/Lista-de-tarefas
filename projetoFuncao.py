@@ -117,7 +117,7 @@ def filtrarTarefaPorCategoria():
             Status - {tarefaDaVez['Status']}
             """)
   if not tarefas_encontradas:
-    print(f"Nenhuma tarefa foi encontrada com o filtro de Categoria: {filtro}")
+    print(f"Nenhuma tarefa foi encontrada com o filtro de Categoria: {filtroCategoria}")
 
 
 
@@ -143,7 +143,7 @@ def filtrarTarefaPorStatus():
             Status - {tarefaDaVez['Status']}
             """)
   if not tarefas_encontradas:
-    print(f"Nenhuma tarefa foi encontrada com o filtro de Status: {filtro}")
+    print(f"Nenhuma tarefa foi encontrada com o filtro de Status: {filtroStatus}")
 
 
 
@@ -171,15 +171,15 @@ Digite a opção desejada: """))
             Status - {tarefaDaVez['Status']}
             """)
   if not tarefas_encontradas:
-    print(f"Nenhuma tarefa foi encontrada com o filtro de Prioridade: {filtro}")
+    print(f"Nenhuma tarefa foi encontrada com o filtro de Prioridade: {filtroPrioridade}")
 
 
 
-# def removerTarefa():
-#   nomeDaTarefa = input("Digite o nome da tarefa que deseja remover: ")
-#   for tarefaDaVez in listaDeTarefas:
-#     if tarefaDaVez["Tarefa"] == nomeDaTarefa:
-#       listaDeTarefas.remove()
+def removerTarefa():
+  nomeDaTarefa = input("Digite o nome da tarefa que deseja remover: ")
+  for tarefaDaVez in listaDeTarefas:
+    if tarefaDaVez["Tarefa"] == nomeDaTarefa:
+      listaDeTarefas.remove(tarefaDaVez)
 
 
 
@@ -200,6 +200,7 @@ while True:
         4 - FILTRAR TAREFA POR CATEGORIA
         5 - FILTRAR TAREFA POR STATUS
         6 - FILTRAR TAREFA POR PRIORIDADE
+        7 - REMOVER TAREFA
         0 - SAIR
         """)
   opcao = int(input("Digite a opção deseja: "))
@@ -219,6 +220,8 @@ while True:
       filtrarTarefaPorStatus()
     case 6:
       filtrarTarefaPorPrioridade()
+    case 7:
+      removerTarefa()
     case 0:
       print("Programa Finalizado")
       break
